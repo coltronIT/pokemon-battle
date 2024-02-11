@@ -12,8 +12,8 @@ class MainProgram:
     def __init__(self):
         self.program_status = ProgramStatus.RUN
         self.questions = [
-            (Question.ATTACK_TYPE, 'attack_type'),
-            (Question.POKEMON_TYPE, 'pokemon_type')
+            ('attack_type', Question.ATTACK_TYPE),
+            ('pokemon_type', Question.POKEMON_TYPE)
         ]
 
 
@@ -23,7 +23,7 @@ class MainProgram:
         while self.program_status == ProgramStatus.RUN:
             type_responses = {}
 
-            for prompt, key in self.questions:
+            for key, prompt in self.questions:
                 response = input(prompt).lower()
 
                 if determine_quit_response(response):
@@ -39,7 +39,8 @@ class MainProgram:
             if not is_valid_type:
                 continue
 
-            print(determine_effectiveness(**type_responses))
+            if len(type_responses) == len(self.questions):
+                print(determine_effectiveness(**type_responses))
 
         print(ConsoleMessage.END_OF_PROGRAM)
 
