@@ -1,6 +1,5 @@
 from enums.TypeEnum import Type
 
-Exit
 
 def verify_type_from_response(unsanitized_reponse: str) -> bool:
     try:
