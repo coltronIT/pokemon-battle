@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Pokemon Battle Simulator</title>
 </head>
 <body>
-    <h1>Pokemon Battle Simulator</h1>
-    <form id="battleForm">
-        <label for="attackType">Attack Type:</label>
-        <input type="text" id="attackType" name="attackType" required>
-        <label for="pokemonType">Pokemon Type:</label>
-        <input type="text" id="pokemonType" name="pokemonType" required>
-        <button type="submit">Simulate Battle</button>
-    </form>
-    <div id="result"></div>
+    <div id="app">
+        <div id="header">
+            <h1>Pokemon Battle Simulator</h1>
+        </div>
+        <form id="battleForm">
+            <label for="attackType">Attack Type:</label>
+            <input type="text" id="attackType" name="attackType" required>
+            <label for="pokemonType">Pokemon Type:</label>
+            <input type="text" id="pokemonType" name="pokemonType" required>
+            <button type="submit">Simulate Battle</button>
+        </form>
+        <div id="result"></div>
+    </div>
 
     <script src="app.js"></script>
 </body>

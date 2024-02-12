@@ -23,6 +23,10 @@ def handle_fire_attack_type(pokemon_type: Type) -> Effectiveness:
     return handle_attack_type_from_mapper(pokemon_type, fire_type_effectiveness_mapper)
 
 
+def handle_normal_attack_type(pokemon_type: Type) -> Effectiveness:
+    return handle_attack_type_from_mapper(pokemon_type, normal_type_effectiveness_mapper)
+
+
 def determine_effectiveness(attack_type: Type, pokemon_type: Type) -> None | Effectiveness:
     if not attack_type or not pokemon_type:
         return
@@ -34,23 +38,34 @@ def determine_effectiveness(attack_type: Type, pokemon_type: Type) -> None | Eff
 grass_type_effectiveness_mapper = {
     Type.FIRE: Effectiveness.NOT_VERY_EFFECTIVE,
     Type.WATER: Effectiveness.SUPER_EFFECTIVE,
-    Type.GRASS: Effectiveness.EFFECTIVE
+    Type.GRASS: Effectiveness.EFFECTIVE,
+    Type.NORMAL: Effectiveness.EFFECTIVE
 }
 
 fire_type_effectiveness_mapper = {
     Type.WATER: Effectiveness.NOT_VERY_EFFECTIVE,
     Type.GRASS: Effectiveness.SUPER_EFFECTIVE,
-    Type.FIRE: Effectiveness.EFFECTIVE
+    Type.FIRE: Effectiveness.EFFECTIVE,
+    Type.NORMAL: Effectiveness.EFFECTIVE
 }
 
 water_type_effectiveness_mapper = {
     Type.GRASS: Effectiveness.NOT_VERY_EFFECTIVE,
     Type.FIRE: Effectiveness.SUPER_EFFECTIVE,
-    Type.WATER: Effectiveness.EFFECTIVE
+    Type.WATER: Effectiveness.EFFECTIVE,
+    Type.NORMAL: Effectiveness.EFFECTIVE
+}
+
+normal_type_effectiveness_mapper = {
+    Type.GRASS: Effectiveness.EFFECTIVE,
+    Type.FIRE: Effectiveness.EFFECTIVE,
+    Type.WATER: Effectiveness.EFFECTIVE,
+    Type.NORMAL: Effectiveness.EFFECTIVE
 }
 
 attack_type_handler_mapper = {
     Type.GRASS: handle_grass_attack_type,
     Type.FIRE: handle_fire_attack_type,
     Type.WATER: handle_water_attack_type,
+    Type.NORMAL: handle_normal_attack_type
 }

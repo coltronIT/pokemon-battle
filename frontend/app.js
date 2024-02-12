@@ -1,5 +1,5 @@
 document.getElementById('battleForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault();
 
     const attackType = document.getElementById('attackType').value;
     const pokemonType = document.getElementById('pokemonType').value;
@@ -13,7 +13,11 @@ document.getElementById('battleForm').addEventListener('submit', function(e) {
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById('result').textContent = `Result: ${data.effectiveness}`;
+        let content = 'Result: Not Valid Types (water, grass, fire, or normal)';
+        if (String(data.effectiveness).toLowerCase() !== 'undefined') {
+            content = `Result: ${data.effectiveness}`;
+        }
+        document.getElementById('result').textContent = content;
     })
     .catch((error) => {
         console.error('Error:', error);
