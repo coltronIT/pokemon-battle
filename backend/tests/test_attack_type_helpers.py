@@ -32,3 +32,16 @@ def test_grass_attack_type(pokemon_type, expected_outcome):
 def test_water_attack_type(pokemon_type, expected_outcome):
     assert handle_water_attack_type(pokemon_type) == expected_outcome
 
+
+@pytest.mark.parametrize(
+    'pokemon_type, expected_outcome',
+    [
+        ('grass', 'Super Effective'),
+        ('water', 'Not Very Effective'),
+        ('fire', 'Not Very Effective'),
+        ('normal', 'Effective')
+    ]
+)
+def test_fire_attack_type(pokemon_type, expected_outcome):
+    assert handle_fire_attack_type(pokemon_type) == expected_outcome
+
