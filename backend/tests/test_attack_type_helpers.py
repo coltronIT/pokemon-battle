@@ -24,11 +24,11 @@ def test_grass_attack_type(pokemon_type, expected_outcome):
     'pokemon_type, expected_outcome',
     [
         ('grass', 'Not Very Effective'),
-        ('water', 'Super Effective'),
-        ('fire', 'Not Very Effective'),
+        ('water', 'Not Very Effective'),
+        ('fire', 'Super Effective'),
         ('normal', 'Effective')
     ]
 )
 def test_water_attack_type(pokemon_type, expected_outcome):
-    assert handle_grass_attack_type(pokemon_type) == expected_outcome
+    assert handle_water_attack_type(pokemon_type) == expected_outcome
 

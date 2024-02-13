@@ -3,6 +3,8 @@ from backend.enums.TypeEnum import Type
 
 
 def handle_grass_attack_type(pokemon_type: Type) -> Effectiveness:
+    if pokemon_type == 'water':
+        return water_type_effectiveness_mapper[pokemon_type]
     return grass_type_effectiveness_mapper[pokemon_type]
 
 
